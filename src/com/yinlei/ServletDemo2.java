@@ -40,7 +40,10 @@ public class ServletDemo2 extends HttpServlet {
 		gzip.write(bs);
 		gzip.close();
 		bs = baos.toByteArray();  //压缩后的数据
-		System.out.println(bs.length);
+		System.out.println("压缩后的长度：" + bs.length);
+		
+		//通知游览器发送的数据格式是gzip
+		response.setHeader("Content-Encoding", "gzip");
 		response.getOutputStream().write(bs);
 		
 	}
