@@ -14,7 +14,6 @@ import org.apache.tomcat.util.http.fileupload.ByteArrayOutputStream;
 /**
  * Servlet implementation class ServletDemo2
  */
-@WebServlet("/ServletDemo2")
 public class ServletDemo2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
