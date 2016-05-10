@@ -11,10 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class MyServlet
  */
-public class MyServlet extends HttpServlet {
+@WebServlet("/ServletDemo0")
+public class ServletDemo0 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public MyServlet() {
+    public ServletDemo0() {
         super();
     }
 
