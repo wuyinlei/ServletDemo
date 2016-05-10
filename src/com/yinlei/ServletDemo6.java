@@ -8,30 +8,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ServletDemo
+ * Servlet implementation class ServletDemo6
+ * 演示响应头Expires(告诉服务器不要缓存)
  */
-@WebServlet("/ServletDemo1")
-public class ServletDemo1 extends HttpServlet {
+@WebServlet("/ServletDemo6")
+public class ServletDemo6 extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ServletDemo1() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("到这了");
+		//通知游览器不要缓存
+		response.setHeader("Expires", "-1");
+		//有了以下的两句，在次的请求的时候，去服务器来看，一般用于验证码
+		//版本1.1
+		response.setHeader("Cache-Control","no-cache");
+		//版本1.0
+		response.setHeader("Pragma","no-cache");
+		response.getWriter().write("hello world!");
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
